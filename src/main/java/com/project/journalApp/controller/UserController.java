@@ -27,7 +27,7 @@ public class UserController {
 
 //    @PostMapping
 //    public void createUser(@RequestBody User user){
-//        userService.saveEntry(user);
+//        userService.saveNewUser(user);
 //    }
 
     @PutMapping
@@ -38,11 +38,11 @@ public class UserController {
         User userInDb=userService.findByUserName(userName);
         userInDb.setUserName(user.getUserName());
         userInDb.setPassword(user.getPassword());
-        userService.saveEntry(userInDb);
+        userService.saveNewUser(userInDb);
 //        if(userInDb!=null){
 //            userInDb.setUserName(user.getUserName());
 //            userInDb.setPassword(user.getPassword());
-//            userService.saveEntry(userInDb);
+//            userService.saveNewUser(userInDb);
 //        }
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

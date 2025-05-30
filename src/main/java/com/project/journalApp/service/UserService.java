@@ -1,8 +1,6 @@
 package com.project.journalApp.service;
 
-import com.project.journalApp.entity.JournalEntry;
 import com.project.journalApp.entity.User;
-import com.project.journalApp.repository.JournalEntryRepository;
 import com.project.journalApp.repository.UserRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +20,13 @@ public class UserService {
 //    BCryptPasswordEncoder is an implementation of PasswordEncoder
     private static final PasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
 
-    public void saveEntry(User user){
+    public void saveNewUser(User user){
         user.setRoles(Arrays.asList("USER"));
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+    }
+
+    public void saveUser(User user){
         userRepository.save(user);
     }
 
