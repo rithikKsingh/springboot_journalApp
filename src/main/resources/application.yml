@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: Journal App
+
+  data:
+    mongodb:
+      uri: mongodb+srv://temp:temp@cluster0.elxdbij.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: journaldb
+      auto-index-creation: true
+
+  main:
+      allow-circular-references : true
+
+server:
+  servlet:
+    context-path: /journal
+  port: 8081
